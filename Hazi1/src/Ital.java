@@ -50,26 +50,14 @@ public class Ital {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
+        if (obj == null || !(obj instanceof Ital))
+        {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Ital other = (Ital) obj;
-        if (!Objects.equals(this.név, other.név)) {
-            return false;
-        }
-        if (!Objects.equals(this.kiszerelés, other.kiszerelés)) {
-            return false;
-        }
-        if (!Objects.equals(ár, other.ár)){
-            return false;
-        }
-        return true;
+        
+        Ital i = (Ital) obj;
+        
+        return this.név.equals(i.getNév()) && this.kiszerelés.equals(i.getKiszerelés()) && ár == i.ár;
     }
 
     @Override
